@@ -8,3 +8,4 @@ django-filter==21.1
 black==21.9b0
 pre_commit==2.15.0
 psycopg2-binary==2.9.1
+pip-tools==6.3.0
