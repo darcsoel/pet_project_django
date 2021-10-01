@@ -10,7 +10,6 @@ class RegistrationForm(UserCreationForm):
         label=_("First name"),
         strip=False,
     )
-
     last_name = forms.CharField(
         label=_("Last name"),
         strip=False,
