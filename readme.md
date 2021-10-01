@@ -18,3 +18,7 @@
 **Pre commit setup** <br>
 `pip install pre-commit` <br>
 `pre-commit install` <br>
+
+
+**Compile static** <br>
+`./manage.py collectstatic --noinput`
