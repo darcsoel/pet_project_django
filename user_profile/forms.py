@@ -6,14 +6,8 @@ from user_profile.models import User
 
 
 class RegistrationForm(UserCreationForm):
-    first_name = forms.CharField(
-        label=_("First name"),
-        strip=False,
-    )
-    last_name = forms.CharField(
-        label=_("Last name"),
-        strip=False,
-    )
+    first_name = forms.CharField(label=_("First name"), strip=False)
+    last_name = forms.CharField(label=_("Last name"), strip=False)
 
     class Meta:
         model = User
