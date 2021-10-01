@@ -9,10 +9,8 @@ class AccountForm(forms.ModelForm):
         label=_("Account name"),
         strip=True,
     )
-    email = forms.CharField(
-        label=_("Email"),
-        strip=False,
-    )
+    email = forms.CharField(label=_("Email"), strip=True, required=False)
+    address = forms.CharField(label=_("Address"), strip=False, required=False)
 
     class Meta:
         model = Account
