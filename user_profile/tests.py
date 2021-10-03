@@ -9,11 +9,10 @@ class RegisterIntegrationTest(TestCase):
     def setUp(self) -> None:
         self.client = Client()
 
-    def test_register_url(self):
+    def test_register_form_filled_ok(self):
         user_data = {"username": "test@mail.com", "password1": "password123!@#", "password2": "password123!@#"}
-
-        response = self.client.post("/account/register/", user_data)
-        self.assertIn(response.status_code, (HTTPStatus.OK, HTTPStatus.FOUND))
+        response = self.client.post("/account/register/", user_data, follow=True)
+        self.assertEqual(response.status_code, HTTPStatus.OK)
 
 
 class RegisterUnitTest(TestCase):

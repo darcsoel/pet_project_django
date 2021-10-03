@@ -1,20 +1,8 @@
+{% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'login.css' %}">
-</head>
-<body>
-
-<!------ Include the above in your HEAD tag ---------->
+{% block content %}
 
 <div id="login">
     <div class="container">
@@ -47,7 +35,5 @@
         </div>
     </div>
 </div>
-</body>
 
-
-</html>
+{% endblock %}
