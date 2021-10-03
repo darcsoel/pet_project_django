@@ -1,23 +1,10 @@
-{% load i18n %}
+{% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
+{% block content %}
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"
-          id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'login.css' %}">
-</head>
-<body>
-
-<!------ Include the above in your HEAD tag ---------->
-
-<div id="login">
+<div id="register">
     <div class="container">
         <div id="login-row" class="row justify-content-center align-items-center">
             <div id="login-column" class="col-md-6">
@@ -75,7 +62,5 @@
         </div>
     </div>
 </div>
-</body>
 
-
-</html>
+{% endblock %}
