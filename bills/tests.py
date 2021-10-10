@@ -2,6 +2,7 @@ from django.test import TestCase
 
 from account.forms import AccountForm
 from account.models import Account
+from bills.forms import BillForm
 from bills.models import Bill
 from user_profile.forms import UserForm
 from user_profile.models import User
@@ -15,7 +16,7 @@ class BillsTest(TestCase):
     user_form = UserForm
 
     bill_model = Bill
-    bill_form = None
+    bill_form = BillForm
 
     def test_valid_case(self):
         account_data = {"name": "from account", "email": "test1@mail.com", "address": "some street"}

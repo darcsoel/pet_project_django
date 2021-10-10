@@ -1,7 +1,7 @@
 from django import forms
+from django.utils.translation import gettext_lazy as _
 
 from account.models import Account
-from django.utils.translation import gettext_lazy as _
 
 
 class AccountForm(forms.ModelForm):

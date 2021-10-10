@@ -12,3 +12,7 @@ extend-exclude = '''
   | .idea/
 )/'''
 
+
+[tool.isort]
+profile = "hug"
+src_paths = ["account", "bills", "pet_project_django", "user_profile"]

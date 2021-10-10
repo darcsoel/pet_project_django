@@ -2,7 +2,6 @@ from django.contrib import messages
 from django.contrib.auth import login
 from django.contrib.auth.views import LoginView as DefaultLogin
 from django.shortcuts import redirect, render
-
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import TemplateView
 
