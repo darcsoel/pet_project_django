@@ -1,6 +1,8 @@
+from django.db import IntegrityError
 from django.test import TestCase
 
 from account.forms import AccountForm
+from account.models import Account
 
 
 class AccountFormTest(TestCase):
@@ -39,3 +41,18 @@ class AccountFormTest(TestCase):
         account_data = {"name": "test account", "email": "test account", "address": ""}
         expected_errors = {"email": ["Enter a valid email address."]}
         self._check_incorrect_data(account_data, expected_errors)
+
+
+class AccountModelTest(TestCase):
+    model = Account
+
+    def test_valid_model_create(self):
+        data = {"name": "TestAccount", "email": "test@gmail.com", "address": "Some street"}
+        account = self.model.objects.create(**data)
+        self.assertTrue(account.id)
+
+    def test_account_model_empty_name(self):
+        data = {"name": None, "email": "test@gmail.com", "address": "Some street"}
+
+        with self.assertRaises(IntegrityError):
+            self.model.objects.create(**data)
