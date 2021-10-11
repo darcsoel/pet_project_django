@@ -13,10 +13,24 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name="Account",
             fields=[
-                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
                 ("name", models.CharField(max_length=120, null=None)),
-                ("email", models.CharField(default="", max_length=120, null=True)),
-                ("address", models.CharField(default="", max_length=120, null=True)),
+                (
+                    "email",
+                    models.CharField(default="", max_length=120, null=True),
+                ),
+                (
+                    "address",
+                    models.CharField(default="", max_length=120, null=True),
+                ),
             ],
         ),
     ]
