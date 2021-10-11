@@ -1,9 +1,8 @@
-# from django.contrib import messages
+from django.contrib import messages
 from django.contrib.auth import login
 from django.contrib.auth.views import LoginView as DefaultLogin
 from django.shortcuts import redirect, render
-
-# from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django.views.generic import TemplateView
 
 from user_profile.forms import RegistrationForm
@@ -30,8 +29,8 @@ class RegisterView(TemplateView):
         form = self.form_class(request.POST)
 
         if not form.is_valid():
-            # msg = _("Unsuccessful registration. Invalid information.")
-            # messages.error(request, msg)
+            msg = _("Unsuccessful registration. Wrong form data")
+            messages.error(request, msg)
             context = {"errors": form.errors, "filled": request.POST}
             return render(request, self.template_name, context=context)
 
