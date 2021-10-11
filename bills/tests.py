@@ -1,3 +1,7 @@
+import copy
+import json
+
+from django.core.exceptions import ValidationError
 from django.test import TestCase
 
 from account.forms import AccountForm
@@ -38,4 +42,43 @@ class BillsTest(UserFormUnitTest):
         self.assertTrue(to_account_form.is_valid())
         to_account = to_account_form.save()
 
-        user_data = {}
+        user_data = copy.deepcopy(self.user_data)
+        user_data.update(
+            {
+                "account": from_account.id,
+                "email": "from@gmail.com",
+                "role": "user",
+            }
+        )
+        from_user_form = self.user_form(data=user_data)
+        if not from_user_form.is_valid():
+            raise ValidationError(message=json.dumps(from_user_form.errors))
+        from_user = from_user_form.save()
+
+        user_data = copy.deepcopy(self.user_data)
+        user_data.update(
+            {
+                "username": "test_to@mail.com",
+                "account": to_account.id,
+                "email": "to@gmail.com",
+                "role": "user",
+            }
+        )
+        to_user_form = self.user_form(data=user_data)
+        if not to_user_form.is_valid():
+            raise ValidationError(message=json.dumps(to_user_form.errors))
+        to_user = to_user_form.save()
+
+        bill_form = self.bill_form(
+            data={
+                "from_account": from_account.id,
+                "to_account": to_account.id,
+                "from_user": from_user.id,
+                "to_user": to_user.id,
+                "payment": 100,
+            }
+        )
+        if not bill_form.is_valid():
+            raise ValidationError(message=json.dumps(bill_form.errors))
+        bill = bill_form.save()
+        self.assertTrue(bill.id)
