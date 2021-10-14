@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>account list</title>
+</head>
+<body>
+
+{% for bill in bills %}
+   <div>{{ bill.from_account.name }} | {{ bill.to_account.name }}</div>
+{% endfor %}
+</body>
+</html>

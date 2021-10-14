@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from django.core.exceptions import ValidationError
+from django.shortcuts import get_object_or_404
 from django.utils.translation import gettext_lazy as _
 
 from account.models import Account
@@ -13,7 +13,14 @@ class RegistrationForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ("username", "email", "password1", "password2", "first_name", "last_name")
+        fields = (
+            "username",
+            "email",
+            "password1",
+            "password2",
+            "first_name",
+            "last_name",
+        )
 
     def save(self, commit=True):
         user = super().save(commit=False)
@@ -33,10 +40,15 @@ class UserForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ("username", "email", "role", "account", "first_name", "last_name")
+        fields = (
+            "username",
+            "email",
+            "role",
+            "account",
+            "first_name",
+            "last_name",
+        )
 
     def save(self, **kwargs):
-        if not Account.objects.filter(id=self.data["account"]).count():
-            raise ValidationError(message="Account do not exists")
-
+        get_object_or_404(Account, pk=self.data["account"])
         return super().save(**kwargs)

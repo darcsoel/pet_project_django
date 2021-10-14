@@ -15,6 +15,10 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="user",
             name="account",
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.PROTECT, to="account.account"),
+            field=models.ForeignKey(
+                null=True,
+                on_delete=django.db.models.deletion.PROTECT,
+                to="account.account",
+            ),
         ),
     ]

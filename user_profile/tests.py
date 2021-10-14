@@ -3,6 +3,7 @@ import json
 from http import HTTPStatus
 
 from django.core.exceptions import ValidationError
+from django.http import Http404
 from django.test import Client, TestCase
 
 from account.models import Account
@@ -14,8 +15,14 @@ class RegisterIntegrationTest(TestCase):
         self.client = Client()
 
     def test_register_form_filled_ok(self):
-        user_data = {"username": "test@mail.com", "password1": "password123!@#", "password2": "password123!@#"}
-        response = self.client.post("/account/register/", user_data, follow=True)
+        user_data = {
+            "username": "test@mail.com",
+            "password1": "password123!@#",
+            "password2": "password123!@#",
+        }
+        response = self.client.post(
+            "/account/register/", user_data, follow=True
+        )
         self.assertEqual(response.status_code, HTTPStatus.OK)
 
 
@@ -73,7 +80,11 @@ class RegisterFormUnitTest(BaseUserFormTest):
 
 class UserFormUnitTest(BaseUserFormTest):
     def test_with_existing_account(self):
-        account_data = {"name": "test account", "email": "test@mail.com", "address": "some street"}
+        account_data = {
+            "name": "test account",
+            "email": "test@mail.com",
+            "address": "some street",
+        }
         account = Account.objects.create(**account_data)
 
         form = RegistrationForm(data=self.user_data)
@@ -82,7 +93,9 @@ class UserFormUnitTest(BaseUserFormTest):
 
         user = form.save()
         user_data = copy.deepcopy(self.user_data)
-        user_data.update({"email": "test@gmail.com", "account": account.id, "role": "user"})
+        user_data.update(
+            {"email": "test@gmail.com", "account": account.id, "role": "user"}
+        )
 
         user_form = UserForm(data=user_data, instance=user)
         if not user_form.is_valid():
@@ -98,6 +111,6 @@ class UserFormUnitTest(BaseUserFormTest):
             "last_name": "Doe",
             "account": 11111111111,
         }
-        with self.assertRaises(ValidationError):
+        with self.assertRaises(Http404):
             user = UserForm(data=user_data).save()
             self.assertTrue(user.id)

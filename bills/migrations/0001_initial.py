@@ -17,12 +17,25 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name="Bill",
             fields=[
-                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
-                ("payment", models.DecimalField(decimal_places=2, max_digits=15)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "payment",
+                    models.DecimalField(decimal_places=2, max_digits=15),
+                ),
                 (
                     "from_account",
                     models.ForeignKey(
-                        on_delete=django.db.models.deletion.PROTECT, related_name="from_account", to="account.account"
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="from_account",
+                        to="account.account",
                     ),
                 ),
                 (
@@ -37,7 +50,9 @@ class Migration(migrations.Migration):
                 (
                     "to_account",
                     models.ForeignKey(
-                        on_delete=django.db.models.deletion.PROTECT, related_name="to_account", to="account.account"
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="to_account",
+                        to="account.account",
                     ),
                 ),
                 (
