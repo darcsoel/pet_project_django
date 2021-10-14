@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #b6e9f1;
+  background-color: #dcfafd;
   height: 100vh;
 }
 #login .container #login-row #login-column #login-box {
@@ -16,4 +16,21 @@ body {
 }
 #login .container #login-row #login-column #login-box #login-form #register-link {
   margin-top: -85px;
+}
+
+table {
+  border-collapse: collapse;
+  border: 1px solid #0f0f0f;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #a1c2f5;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #ffcccc;
+}
+
+th, td {
+  padding: 5px;
 }

@@ -1,13 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>account list</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
 
-{% for bill in bills %}
-   <div>{{ bill.from_account.name }} | {{ bill.to_account.name }}</div>
-{% endfor %}
-</body>
-</html>
+{% block content %}
+
+    <div class="row">
+        <div class="center-block">
+            <table>
+                <thead>
+                <tr>
+                  <th scope="col">{% trans 'From account' %}</th>
+                  <th scope="col">{% trans 'To account' %}</th>
+                  <th scope="col">{% trans 'From user' %}</th>
+                  <th scope="col">{% trans 'To user' %}</th>
+                  <th scope="col">{% trans 'Payment sum' %}</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for bill in bills %}
+                    <tr>
+                    <td>{{ bill.from_account.name }}</td>
+                    <td>{{ bill.to_account.name }}</td>
+                    <td>{{ bill.to_user.username }}</td>
+                    <td>{{ bill.from_user.username }}</td>
+                    <td>{{ bill.payment }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}
