@@ -85,3 +85,4 @@ class AccountModelTest(TestCase):
 
         with self.assertRaises(IntegrityError):
             self.model.objects.create(**data)
+
