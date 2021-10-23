@@ -1,4 +1,4 @@
-name: Django Tests CI
+name: Django Tests
 
 on: [push, pull_request]
 
