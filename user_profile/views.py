@@ -45,6 +45,4 @@ class ProfileView(TemplateView):
 
     def get(self, request, *args, **kwargs):
         user = request.user
-        return render(
-            request, self.template_name, context={"profile_data": user}
-        )
+        return render(request, self.template_name, context={"profile_data": user})

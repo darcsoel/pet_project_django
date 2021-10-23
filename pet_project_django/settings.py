@@ -25,9 +25,7 @@ DEBUG = True
 
 # SECURITY WARNING: keep the secret key used in production secret!
 if DEBUG:
-    SECRET_KEY = (
-        "django-insecure-66c!3n-q)tn$$w8-fys1gjme-l9@xeoi@4k#h%lk3x&c!_u8qq"
-    )
+    SECRET_KEY = "django-insecure-66c!3n-q)tn$$w8-fys1gjme-l9@xeoi@4k#h%lk3x&c!_u8qq"
 else:
     SECRET_KEY = environ.get("DJANGO_SECRET")
 
@@ -116,9 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
-    "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly"
-    ]
+    "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly"]
 }
 
 # Internationalization
