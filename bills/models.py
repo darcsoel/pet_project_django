@@ -1,7 +1,7 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 from account.models import Account
-from user_profile.models import User
 
 
 class Bill(models.Model):
