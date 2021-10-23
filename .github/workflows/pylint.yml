@@ -1,9 +1,9 @@
 name: Pylint
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
-  build:
+  ubuntu:
     runs-on: ubuntu-20.04
     strategy:
       max-parallel: 5
