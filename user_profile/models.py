@@ -14,7 +14,5 @@ class UserRolesEnum(models.TextChoices):
 
 
 class User(DefaultUser):
-    role = models.CharField(
-        max_length=15, choices=UserRolesEnum.choices, default=UserRolesEnum.USER
-    )
+    role = models.CharField(max_length=15, choices=UserRolesEnum.choices, default=UserRolesEnum.USER)
     account = models.ForeignKey(Account, on_delete=models.PROTECT, null=True)

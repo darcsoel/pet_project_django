@@ -10,9 +10,7 @@ class AccountListView(TemplateView):
 
     def get(self, request, *args, **kwargs):
         accounts = Account.objects.all()
-        return render(
-            request, self.template_name, context={"accounts": accounts}
-        )
+        return render(request, self.template_name, context={"accounts": accounts})
 
 
 class AccountUsersListView(TemplateView):
