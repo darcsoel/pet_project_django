@@ -20,9 +20,7 @@ class RegisterIntegrationTest(TestCase):
             "password1": "password123!@#",
             "password2": "password123!@#",
         }
-        response = self.client.post(
-            "/account/register/", user_data, follow=True
-        )
+        response = self.client.post("/account/register/", user_data, follow=True)
         self.assertEqual(response.status_code, HTTPStatus.OK)
 
 
@@ -93,9 +91,7 @@ class UserFormUnitTest(BaseUserFormTest):
 
         user = form.save()
         user_data = copy.deepcopy(self.user_data)
-        user_data.update(
-            {"email": "test@gmail.com", "account": account.id, "role": "user"}
-        )
+        user_data.update({"email": "test@gmail.com", "account": account.id, "role": "user"})
 
         user_form = UserForm(data=user_data, instance=user)
         if not user_form.is_valid():

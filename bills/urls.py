@@ -3,6 +3,4 @@ from django.urls import path, re_path
 
 from . import views
 
-urlpatterns = [
-    path("", login_required(views.BillsListView.as_view()), name="bills-list")
-]
+urlpatterns = [path("", login_required(views.BillsListView.as_view()), name="bills-list")]
