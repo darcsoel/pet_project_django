@@ -13,14 +13,7 @@ class RegistrationForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = (
-            "username",
-            "email",
-            "password1",
-            "password2",
-            "first_name",
-            "last_name",
-        )
+        fields = ("username", "email", "password1", "password2", "first_name", "last_name")
 
     def save(self, commit=True):
         user = super().save(commit=False)
@@ -40,14 +33,7 @@ class UserForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = (
-            "username",
-            "email",
-            "role",
-            "account",
-            "first_name",
-            "last_name",
-        )
+        fields = ("username", "email", "role", "account", "first_name", "last_name")
 
     def save(self, **kwargs):
         get_object_or_404(Account, pk=self.data["account"])

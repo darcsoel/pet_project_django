@@ -5,3 +5,6 @@ class Account(models.Model):
     name = models.CharField(max_length=120, null=False)
     email = models.CharField(max_length=120, null=True, default="")
     address = models.CharField(max_length=120, null=True, default="")
+
+    def __str__(self):
+        return self.name

@@ -23,4 +23,4 @@ jobs:
         pip install pylint
     - name: Analysing the code with pylint
       run: |
-        pylint --fail-under=8 `ls -R|grep .py$|xargs`
+        pylint --fail-under=9 `ls -R|grep .py$|xargs`
