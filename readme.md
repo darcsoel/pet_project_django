@@ -19,6 +19,17 @@ For dev use <br>
 
 <br>
 
+**For macOS**
+
+`brew install postgres`
+`brew services start postgres`
+`createdb `whoami``
+`createuser -s postgres`
+
+https://gist.github.com/ibraheem4/ce5ccd3e4d7a65589ce84f2a3b7c23a3
+
+<br>
+
 **Pre commit setup** <br>
 `pip install pre-commit` <br>
 `pre-commit install` <br>
