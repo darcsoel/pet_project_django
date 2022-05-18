@@ -6,10 +6,10 @@ authors = ["Ross <rostikvunarchuk@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-Django = "3.2.7"
-djangorestframework = "3.12.4"
+Django = "3.2.13"
+djangorestframework = "3.13.1"
 django-filter = "21.1"
-psycopg2-binary = "2.9.1"
+psycopg2-binary = "2.9.3"
 
 [tool.poetry.dev-dependencies]
 black = "^22.3.0"
