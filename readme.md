@@ -1,6 +1,9 @@
 **Sync dependencies** <br>
-Use poetry for this purpose
-
+`pip install pip-tools` <br>
+For prod use <br>
+`pip-compile --output-file requirements.txt requirements.in` <br>
+For dev use <br>
+`pip-compile --output-file requirements-dev.txt requirements-dev.in` <br>
 
 <br>
 
