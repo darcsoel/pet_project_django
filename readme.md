@@ -4,8 +4,19 @@ Use poetry for this purpose
 
 <br>
 
-**DB setup** <br>
-`sudo apt install postgresql postgresql-contrib python3-psycopg2` <br>
+**DB setup**
+
+**Ubuntu/Fedora**
+
+`sudo [apt/yum] install postgresql postgresql-contrib python3-psycopg2` <br>
+
+[Fedora start] <br>
+`sudo yum install -y postgresql-server postgresql-contrib` <br>
+`sudo postgresql-setup initdb` <br>
+`sudo systemctl start postgresql` <br>
+`sudo systemctl enable postgresql` <br>
+[Fedora ends]
+
 `sudo -iu postgres` <br>
 `psql` <br>
 `create user django with encrypted password 'django';` <br>

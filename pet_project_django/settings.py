@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(environ.get("DEBUG_MODE", False))
+DEBUG = bool(environ.get("DEBUG_MODE", True))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 if DEBUG:
@@ -87,7 +87,7 @@ DATABASES = {
         "NAME": environ.get("DB_NAME", "django"),
         "USER": environ.get("DB_USER", "django"),
         "PASSWORD": environ.get("DB_PWD", "django"),
-        "HOST": environ.get("DB_HOST", "localhost"),
+        "HOST": environ.get("DB_HOST", "127.0.0.1"),
         "PORT": environ.get("DB_PORT", 5432),
     }
 }
