@@ -5,7 +5,7 @@
 `sudo [apt/yum] install postgresql postgresql-contrib python3-psycopg2` <br>
 
 [Fedora start] <br>
-`sudo yum install -y postgresql-server postgresql-contrib` <br>
+`sudo yum install -y postgresql-server` <br>
 `sudo postgresql-setup initdb` <br>
 `sudo systemctl start postgresql` <br>
 `sudo systemctl enable postgresql` <br>
