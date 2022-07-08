@@ -6,7 +6,7 @@ authors = ["Ross <rostikvunarchuk@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-Django = "3.2.13"
+Django = "3.2.14"
 djangorestframework = "3.13.1"
 django-filter = "21.1"
 psycopg2-binary = "2.9.3"
