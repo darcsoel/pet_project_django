@@ -1,6 +1,0 @@
--r requirements.in
-
-black==21.9b0
-pre_commit==2.15.0
-pip-tools==6.3.0
-isort==5.9.3
