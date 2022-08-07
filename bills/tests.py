@@ -2,7 +2,6 @@ import copy
 import json
 
 from django.core.exceptions import ValidationError
-from django.test import TestCase
 
 from account.forms import AccountForm
 from account.models import Account

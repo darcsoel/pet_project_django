@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth import login
 from django.contrib.auth.views import LoginView as DefaultLogin
+from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import TemplateView
@@ -16,7 +17,7 @@ class RegisterView(TemplateView):
     template_name = "registration/register.html"
     form_class = RegistrationForm
 
-    def get(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs) -> HttpResponse:
         if request.user.is_authenticated:
             return redirect("user-profile")
 

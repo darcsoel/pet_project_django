@@ -1,18 +1,50 @@
+[tool.poetry]
+name = "repo_template"
+version = "0.1.0"
+description = "Template description"
+authors = ["Ross <rostikvunarchuk@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Django = "3.2.13"
+djangorestframework = "3.13.1"
+django-filter = "21.1"
+psycopg2-binary = "2.9.3"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.2"
+pre-commit = "^2.20.0"
+pylint = "^2.14.5"
+black = "^22.6.0"
+isort = "^5.10.1"
+bandit = "^1.7.4"
+xenon = "^0.9.0"
+
 [tool.black]
 line-length = 120
-target-version = ['py38']
+target-version = ['py39']
 include = '\.pyi?$'
 extend-exclude = '''
 /(
   # The following are specific to Black, you probably don't want those.
-  | blib2to3
-  | tests/data
-  | profiling
   | venv/
   | .idea/
 )/'''
 
-
 [tool.isort]
-profile = "hug"
-src_paths = ["account", "bills", "pet_project_django", "user_profile"]
+multi_line_output = 3
+line_length = 88
+include_trailing_comma = true
+
+[tool.pylint.master]
+fail-under = 9.0
+
+[tool.pylint]
+max-line-length = 120
+disable=["C0114", "C0115", "C0116",
+"E1101" # django-related
+]
+
+[tool.bandit]
+tests = ["B201", "B301"]
+skips = ["B101", "B601"]
